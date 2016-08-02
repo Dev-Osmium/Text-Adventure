@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="Text Adventure:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Text_Adventure_jar</output-path>
+    <root id="archive" name="Text Adventure.jar">
+      <element id="module-output" name="Text Adventure" />
+    </root>
+  </artifact>
+</component>
