@@ -29,7 +29,7 @@ public class textadv {
 	    String map = null;
         float hp = 20;
 	    int gold = 0;
-	    double VERSION = 0.6;
+	    double VERSION = 0.8;
         System.out.println("Welcome to The Castle v" + VERSION);
         System.out.println("");
         System.out.println("");
@@ -83,6 +83,10 @@ public class textadv {
 					switch (playerChoice) {
 						case "south":
 							playerLoc = "jailCell";
+						case "north":
+							System.out.println("You go north, and run into a massive wall of unfinished dev stuff.");
+							System.out.println("It reaches down and snaps your neck");
+							gameOver("an Unfinished game.");
 					}
 			}
 
