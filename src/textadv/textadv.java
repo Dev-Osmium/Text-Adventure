@@ -23,151 +23,74 @@ public class textadv {
 
     public static void main(String args[]) {
         //Declare Vars here.
+	    String playerLoc = "jailCell";
+	    Boolean hasWon = false;
+	    String playerChoice = null;
+	    String map = null;
         float hp = 20;
-        int gold = 0;
-
-
-        double VERSION = 0.6;
+	    int gold = 0;
+	    double VERSION = 0.6;
         System.out.println("Welcome to The Castle v" + VERSION);
         System.out.println("");
         System.out.println("");
         System.out.println("");
         System.out.println("Your goal is to find the end of the castle");
-        System.out.println("Play? Y/N");
-        String play = scanner.next();
-
-        switch (play) {
-            case "y":
-                System.out.println("Welcome to the Castle.");
-                System.out.println("You must make it to the end in order to escape.");
-                System.out.println("The more gold you find, the more points you get.");
-	            System.out.println("You are standing in a dungeon. There is a puddle of water.");
-	            System.out.println("If you wait, the jailer will come.");
-	            System.out.print("");
-	            System.out.print(">");
-	            String choice1 = scanner.next();
-	            switch (choice1) {
-		            case "wait":
-			            System.out.println("You wait a while. The Jailer comes.");
-			            System.out.println("You find a knife on the tray he brings.");
-			            System.out.print("");
-			            System.out.println(">");
-			            String choice2 = scanner.next();
-			            System.out.println(choice2);
-			            switch (choice2) {
-				            case "attack":
-					            System.out.println("You take the knife and stab him in the back.");
-					            System.out.println("You get 20 gold!");
-					            gold += 20;
-					            System.out.println("Exits are: north");
-					            System.out.println("Go where?");
-					            String choice3 = scanner.next();
-					            switch (choice3) {
-
-						            case "north":
-							            System.out.println("You're in a corridor, lined with cells.");
-							            System.out.println("There are stairs at either end.");
-							            System.out.println("Exits are: east, west");
-							            System.out.println("Go where?");
-							            String choice4 = scanner.next();
-							            switch (choice4){
-
-								            case "east":
-									            System.out.println("You're at the eastern end of the corridor");
-									            System.out.println("Exits are: up, west");
-									            System.out.println("Go Where?");
-									            String choice5 = scanner.next();
-									            switch (choice5){
-
-										            case "up":
-											            System.out.println("You're in a staircase.");
-											            System.out.println("Exits are: up, down");
-											            System.out.println("Go where?");
-											            String choice6 = scanner.next();
-											            switch (choice6) {
-												            case "up":
-													            System.out.println("You're in the royal bathroom.");
-													            System.out.println("You wonder why the dungeons are beneath the toilet.");
-													            System.out.println("There is a gilded door to the north.");
-													            System.out.println("Exits are: north");
-													            System.out.println("Go where?");
-													            String choice7 = scanner.next();
-													            switch (choice7) {
-														            case "north":
-															            System.out.println("You're in the king's bedchambers");
-															            System.out.println("There is a bouncy bed");
-															            System.out.println("There is a desk with a lot of drawers.");
-															            System.out.print("");
-															            System.out.println(">");
-															            String choice8 = scanner.next();
-															            switch (choice8) {
-																            case "bounce":
-																	            System.out.println("You bounced on the bed.");
-																	            System.out.println("The bed broke and you died.");
-																	            gameOver("Drowning");
-																            case "desk":
-																	            System.out.println("Do what with the desk?");
-																	            System.out.println(">");
-																	            String choice9 = scanner.next();
-																	            switch (choice9) {
-																		            case "inspect":
-																			            System.out.println("You look through all the drawers.");
-																			            System.out.println("You took a long time, and the king");
-																			            System.out.print(" arrived.");
-																			            System.out.println("He doesn't like you, and chops off");
-																			            System.out.println("your head.");
-																			            gameOver("Unfriendly king");
-																	            }
-															            }
-													            }
-											            }
-
-									            }
-
-							            }
-					            }
+        System.out.println("Have fun, and don't forget to give feedback on the website!");
+		while (hasWon == false) {
+			switch (playerLoc) {
+				case "jailCell":
+					System.out.println("You are standing in a small, cramped dungeon");
+					System.out.println("There is a small puddle in the corner");
+					System.out.println("There is a large, heavy locked door to the north.");
+					System.out.println(">");
+					playerChoice = scanner.next();
+					switch (playerChoice) {
+						case "wait":
+							System.out.println("The jailer comes with a tray of food.");
+							System.out.println("There is a knife on the tray");
+							System.out.println(">");
+							playerChoice = null;
+							playerChoice = scanner.next();
+							switch (playerChoice) {
+								case "fight":
+									System.out.println("Fight what?");
+									playerChoice = null;
+									playerChoice = scanner.next();
+									switch (playerChoice) {
+										case "jailer":
+											System.out.println("You take the knife and stab the jailer");
+											System.out.println("Exits are: North");
+											System.out.println(">");
+											playerChoice = null;
+											playerChoice = scanner.next();
+											switch (playerChoice) {
+												case "north":
+													System.out.println("You go through the door.");
+													playerChoice = null;
+													playerLoc = "dungeonHall";
+													break;
+											}
+									}
+							}
+					}
+				case "dungeonHall":
+					System.out.println("You are standing in a corridor running north,");
+					System.out.println("The walls are lined with doors");
+					System.out.println("You hear the prisoners eating.");
+					System.out.println("Exits are: North, South");
+					System.out.print(">");
+					playerChoice = scanner.next();
+					switch (playerChoice) {
+						case "south":
+							playerLoc = "jailCell";
+					}
+			}
 
 
-			            }
-		            case "drink":
-			            System.out.println("Drink What?");
-			            System.out.print("");
-			            System.out.println(">Drink ");
-			            String choice3 = scanner.next();
-			            switch (choice3){
-				            case "puddle":
-					            System.out.println("You drank the puddle, and also rat pee.");
-
-					            gameOver("Contaminated Puddle");
-
-			            }
-		            case "force":
-			            System.out.println("Force What?");
-			            System.out.print("");
-			            System.out.println(">Force ");
-			            choice3 = scanner.next();
-			            switch (choice3) {
-				            case "door":
-					            System.out.println("You're too thirsty");
-			            }
-		            case "help":
-			            System.out.println("Commands are:");
-			            System.out.println("help-Display this message");
-			            System.out.println("gold-Displays your current gold.*");
-			            System.out.println("kills-Displays your kills*");
-			            System.out.println("info-Displays Information");
-			            System.out.println("quit-Quits the game.");
-			            System.out.println("A * denotes a WIP feature.");
-	            }
-                System.out.println("Thanks for Playing!");
-
-            case "n":
-                System.out.println("Thanks for loading, anyways... :(");
-                System.exit(2);
-        }
-
-
+		}
     }
+
+
 
     private static void gameOver (String diedOf ) {
         System.out.println("GAME OVER");
