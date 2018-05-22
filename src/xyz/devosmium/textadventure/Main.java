@@ -19,7 +19,7 @@ public class Main {
         System.out.println("    | |  |  __  |  __|   | |      / /\\ \\  \\___ \\   | |  | |    |  __|  ");
         System.out.println("    | |  | |  | | |____  | |____ / ____ \\ ____) |  | |  | |____| |____ ");
         System.out.println("    |_|  |_|  |_|______|  \\_____/_/    \\_\\_____/   |_|  |______|______|");
-        Room cell = new Room("cell", new String[]{"north"});
+        Room cell = new Room("cell", new String[]{"north"}, null);
         cell.setDescription("You are in a goddamn cell.");
         System.out.println(cell.getmDescription());
     }
