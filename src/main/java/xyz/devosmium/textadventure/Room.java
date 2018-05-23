@@ -10,12 +10,12 @@ import java.util.Arrays;
 public class Room {
 
     private String mName;
-    private String[] mExits;
+    private EnumCompassDir[] mExits;
     private String mDescription;
     private String[] mSpecialCharacteristics;
     private String[] mResponses;
 
-    public Room(String name, String[] exits, String[] specialCharacteristics, String[] responses) {
+    public Room(String name, EnumCompassDir[] exits, String[] specialCharacteristics, String[] responses) {
         mName = name;
         mExits = exits;
         mSpecialCharacteristics = specialCharacteristics;
@@ -31,11 +31,11 @@ public class Room {
         this.mName = mName;
     }
 
-    public String[] getmExits() {
+    public EnumCompassDir[] getmExits() {
         return mExits;
     }
 
-    public void setExits(String[] mExits) {
+    public void setExits(EnumCompassDir[] mExits) {
         this.mExits = mExits;
     }
 

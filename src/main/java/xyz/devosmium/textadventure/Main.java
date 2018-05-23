@@ -8,6 +8,8 @@ package xyz.devosmium.textadventure;
 
 
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
@@ -17,16 +19,13 @@ public class Main {
     public static boolean notDead = true;
     public static void main(String[] args) {
         /* Creates the rooms */
-        Room cell1 = new Room("cell1", new String[]{"north"}, new String[]{"door=locked"}, new String[]{"north","wait"});
-        cell1.setDescription("You find yourself in a dark and wet prison cell. There is an iron door set into the north wall, and a small " +
-                "window set into the east wall.");
-        Room dungeonHall = new Room("dungeonHall", new String[]{"north", "south"}, null, new String[]{"north", "south"});
-        dungeonHall.setDescription("You are in a long, stone hallway lined with iron doors much like the one behind you. There are " +
-                "torches every few feet. There is a wooden door at the end of the hallway.");
-        Room kingBedroom = new Room("kingBedroom", new String[]{"north","down"}, new String[]{"desk=unlooted"}, new String[]{"north", "down", "loot"});
-        kingBedroom.setDescription("You walk up a flight of stairs until you reach a trap door, leading into an opulent bathroom.\n" +
-                "The door to the left is open, and leads to the most opulent room that you have ever been in.\n" +
-                "There is a desk to your right, a massive feather bed to your left, and an angry King right in front of you.");
+	    Initialization init = new Initialization();
+	    List<Room> roomArrayList = init.initializeRooms();
+	    
+	    Room cell1 = roomArrayList.get(0);
+	    Room dungeonHall = roomArrayList.get(1);
+	    Room kingBedroom = roomArrayList.get(3);
+	    
         NPC kingEverett = new NPC("King Everett", new String[]{"fists"}, 10, new String[]{"drunk"});
         System.out.println("Welcome to THE CASTLE, a revolutionary new Text Adventure game.");
         System.out.println("We need some information before we start.");
@@ -54,6 +53,7 @@ public class Main {
                             if(currentRoom.getmSpecialCharacteristics()[0].equalsIgnoreCase("door=locked")) {
                                 System.out.println("The door is locked. You notice a bowl of food on the floor and assume that" +
                                         " the jailor will come by soon and open the door to collect it.");
+                                currentRoom.setmResponses(new String[]{"north", "wait"});
                                 break;
                             } else if(currentRoom.getmSpecialCharacteristics()[0].equalsIgnoreCase("door=unlocked")) {
                                 System.out.println("Realizing that the door is unlocked, you push it open and venture out.");
