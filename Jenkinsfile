@@ -13,7 +13,7 @@ pipeline {
     }
     stage('Deliver') {
       steps {
-        archiveArtifacts 'target/thecastle.jar'
+        archiveArtifacts 'target/textadventure-*.jar'
       }
     }
   }
