@@ -4,3 +4,7 @@
 out/production/Text Adventure/xyz/devosmium/textadventure/
 
 Text Adventure\.iml
+
+out/artifacts/Text_Adventure_jar/
+
+target/

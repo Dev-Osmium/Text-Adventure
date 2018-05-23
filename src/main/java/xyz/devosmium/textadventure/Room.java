@@ -1,16 +1,20 @@
 package xyz.devosmium.textadventure;
 
+import java.util.Arrays;
+
 public class Room {
 
     private String mName;
     private String[] mExits;
     private String mDescription;
     private String[] mSpecialCharacteristics;
+    private String[] mResponses;
 
-    public Room(String name, String[] exits, String[] specialCharacteristics) {
+    public Room(String name, String[] exits, String[] specialCharacteristics, String[] responses) {
         mName = name;
         mExits = exits;
         mSpecialCharacteristics = specialCharacteristics;
+        mResponses = responses;
     }
 
 
@@ -31,7 +35,7 @@ public class Room {
     }
 
     public String getmDescription() {
-        String descriptionWithExits = mDescription + "\n" + "Exits are: " + mExits.toString();
+        String descriptionWithExits = mDescription + "\n" + "Exits are: " + Arrays.toString(mExits);
         return descriptionWithExits;
     }
 
@@ -45,5 +49,13 @@ public class Room {
 
     public void setmSpecialCharacteristics(String[] mSpecialCharacteristics) {
         this.mSpecialCharacteristics = mSpecialCharacteristics;
+    }
+
+    public String[] getmResponses() {
+        return mResponses;
+    }
+
+    public void setmResponses(String[] mResponses) {
+        this.mResponses = mResponses;
     }
 }

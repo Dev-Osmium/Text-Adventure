@@ -7,12 +7,14 @@ public class Player {
     private String[] mInventory;
     private int mCarryCapacity;
     private int mLevel;
-    public Player(String name, int gold, String[] inventory, int carryCapacity) {
+    private Room mCurrentRoom;
+    public Player(String name, int gold, String[] inventory, int carryCapacity, Room currentRoom) {
         mName = name;
         mGold = gold;
         mInventory = inventory;
         mCarryCapacity = carryCapacity;
         mLevel = 0;
+        mCurrentRoom = currentRoom;
     }
 
     public String getmName() {
@@ -53,5 +55,13 @@ public class Player {
 
     public void setmLevel(int mLevel) {
         this.mLevel = mLevel;
+    }
+
+    public Room getmCurrentRoom() {
+        return mCurrentRoom;
+    }
+
+    public void setmCurrentRoom(Room mCurrentRoom) {
+        this.mCurrentRoom = mCurrentRoom;
     }
 }
