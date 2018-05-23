@@ -76,7 +76,7 @@ public class Main {
                             player1.setmCurrentRoom(kingBedroom);
                     }
                 default:
-                    throw new IndexOutOfBoundsException();
+                    throw new OutOfMapException();
             }
         }
     }
