@@ -23,7 +23,11 @@ public class Main {
         Room dungeonHall = new Room("dungeonHall", new String[]{"north", "south"}, null, new String[]{"north", "south"});
         dungeonHall.setDescription("You are in a long, stone hallway lined with iron doors much like the one behind you. There are " +
                 "torches every few feet. There is a wooden door at the end of the hallway.");
-
+        Room kingBedroom = new Room("kingBedroom", new String[]{"north","down"}, new String[]{"desk=unlooted"}, new String[]{"north", "down", "loot"});
+        kingBedroom.setDescription("You walk up a flight of stairs until you reach a trap door, leading into an opulent bathroom.\n" +
+                "The door to the left is open, and leads to the most opulent room that you have ever been in.\n" +
+                "There is a desk to your right, a massive feather bed to your left, and an angry King right in front of you.");
+        NPC kingEverett = new NPC("King Everett", new String[]{"fists"}, 10, new String[]{"drunk"});
         System.out.println("Welcome to THE CASTLE, a revolutionary new Text Adventure game.");
         System.out.println("We need some information before we start.");
         System.out.print("What is your name? ");
@@ -67,8 +71,12 @@ public class Main {
                 case "dungeonHall":
                     switch (getInput(currentRoom.getmResponses())) {
                         case "north":
-                            System.out.println("Hi");
+                            System.out.println("You run down the hall and shove the door open. \n" +
+                                    "There is a flight of stone stairs going up into the darkness.");
+                            player1.setmCurrentRoom(kingBedroom);
                     }
+                default:
+                    throw new IndexOutOfBoundsException();
             }
         }
     }
