@@ -9,14 +9,14 @@ pipeline {
   stages {
     stage('build') {
       steps {
-        sh 'mvn clean compile assembly:single'
+        sh 'mvn package'
       }
     }
-      stage('Deliver') {
-                  steps {
-                      sh './jenkins/scripts/deliver.sh'
-                  }
-              }
+    stage('Deliver') {
+      steps {
+       sh './jenkins/scripts/deliver.sh'
+      }
+    }
   }
 
 }
