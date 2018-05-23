@@ -12,10 +12,11 @@ pipeline {
         sh 'mvn clean compile assembly:single'
       }
     }
-  }
-  stage('Deliver') {
-              steps {
-                  sh './jenkins/scripts/deliver.sh'
+      stage('Deliver') {
+                  steps {
+                      sh './jenkins/scripts/deliver.sh'
+                  }
               }
-          }
+  }
+
 }
